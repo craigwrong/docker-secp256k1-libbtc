@@ -1,0 +1,23 @@
+--- Makefile.am.original	2021-12-23 17:21:39.000000000 +0000
++++ Makefile.am	2021-12-23 20:30:31.000000000 +0000
+@@ -3,12 +3,7 @@
+ .PHONY: gen
+ .INTERMEDIATE: $(GENBIN)
+ 
+-DIST_SUBDIRS = src/secp256k1
+-
+-LIBSECP256K1=src/secp256k1/libsecp256k1.la
+-
+-$(LIBSECP256K1): $(wildcard src/secp256k1/src/*) $(wildcard src/secp256k1/include/*)
+-	$(AM_V_at)$(MAKE) $(AM_MAKEFLAGS) -C $(@D) $(@F)
++LIBSECP256K1=-lsecp256k1
+ 
+ lib_LTLIBRARIES = libbtc.la
+ libbtcincludedir = $(includedir)/btc
+@@ -224,6 +219,3 @@
+ endif
+ 
+ endif
+-
+-clean-local:
+-	-$(MAKE) -C src/secp256k1 clean

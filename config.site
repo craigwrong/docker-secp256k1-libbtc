@@ -1,0 +1,3 @@
+CPPFLAGS=-I$HOME/usr/include
+LDFLAGS=-L$HOME/usr/lib
+# /root/usr/share/config.site
